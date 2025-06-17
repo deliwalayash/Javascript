@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My First Javascript learning</h1>
+    <button class="button" onclick="document.getElementById('demo').innerHTML = Date()">Click me to Display date</button>
+    <p id="demo"></p>
+
+    <h2>What Can Javascript Do?</h2>
+    <h3 id="demo2">Javascript can change innerHTML Content vby clicking</h3>
+    <button type="button" onclick="document.getElementById('demo2').innerHTML= 'Hello Javascript !' ">Click me</button>
+
+    <h3>What can i do with java script</h3>
+
+    <button type="button"  onclick="document.getElementById('bulb').src='./images/blue-light-bulb-isolated-18125489.webp'">Click me to turn off the bulb</button>
+
+    <img src="./images/blue-light-bulb-isolated-18125489.webp" alt="" width="100px" id="bulb">
+
+    <button type="button" onclick="document.getElementById('bulb').src='./images/bulb-vector-2067137.jpg'" width="100px">Click me to turn on the bulb</button>
+
+
+    <div id="myDiv">hello</div>
+    <!-- <script>
+        alert("hello how are you")
+    </script> -->
+
+    <div id="change-font-size">Yash Deliwala</div>
+    <button id="changebutton">Click Me to change size of font</button>
+
+<script>
+    let isbig=false;
+  document.getElementById("changebutton").onclick=function(){
+
+    let div=document.getElementById("change-font-size")
+
+    if(!isbig){
+        div.style.fontSize='60px'
+    }
+    else{
+        div.style.fontSize='20px'
+    }
+
+    isbig= !isbig;
+  }  
+  document.getElementById("myDiv").style.fontSize='35px';
+  document.getElementById("myDiv").style.color="red";
+</script>
+</body>
+</html>
+</body>
+</html>
