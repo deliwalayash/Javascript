@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>My First Javascript learning</h1>
-    <button class="button" onclick="document.getElementById('demo').innerHTML = Date()">Click me to Display date</button>
+    <button class="button" id="date-button">Click me to Display date</button>
     <p id="demo"></p>
 
     <h2>What Can Javascript Do?</h2>
@@ -45,6 +45,10 @@
     }
 
     isbig= !isbig;
+
+    document.getElementById("date-button").onclick=function(){   
+    }
+
   }  
   document.getElementById("myDiv").style.fontSize='35px';
   document.getElementById("myDiv").style.color="red";

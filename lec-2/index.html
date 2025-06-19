@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="yash">Hello How r u?</h3>
+    <button onclick="myfunction()">Click me</button>    
+</body>
+
+<script>
+    let hello=false;
+    function myfunction(){
+
+        
+        if(hello){
+             document.getElementById("yash").innerHTML='Hello How r u?'
+        }
+        else{
+        document.getElementById("yash").innerHTML="Bye Bye"
+        }
+
+        hello =!hello;
+     
+    }
+</script>
+</html>
