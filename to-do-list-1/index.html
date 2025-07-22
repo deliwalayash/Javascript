@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+
+    <input type="text" name="" id="task">
+    <select name="" id="priority" required>
+        <option value="">Please select Priority</option>
+        <option value="1">HIGH</option>
+        <option value="2">MEDIUM</option>
+        <option value="3">LOW</option>
+    </select>
+    <button type="submit" class="" id="sbt">+ADD</button>
+    <div id="result"></div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        let tasklist=[]
+        function checkpriority(priority){
+            let priorityint = parseInt(priority)
+            switch(priorityint){
+                case 1:{
+                    return `<span class="text-danger">High<span>`
+                }
+                case 2:{
+                    return `<span class="text-primary">Medium<span>`
+                }
+                case 3:{
+                    return `<span class="text-warning">Low<span>`
+                }
+            }
+        }
+        function deletetask(){
+            $(".delete-btn").on("click",function(){
+                let deleteid = parseInt(this.id)
+                tasklist =tasklist.filter((data) =>{
+                    return (data.taskid != deleteid)
+                })
+                rendertask()
+
+            })
+
+        }
+        function rendertask(){
+            let result= document.getElementById("result")
+            result.innerHTML =""
+            tasklist.forEach((data) =>{
+                result.innerHTML += `<h1>Task Name : ${data.task.toUpperCase()} Task Priority : ${checkpriority(data.priority)} <button class="btn btn-danger delete-btn" id="${data.taskid}">Delete </button></h1>`
+            })
+            deletetask()
+        }
+        $(document).ready(function(){
+            $("#sbt").on("click",function(){
+                let task=document.getElementById("task").value
+                let priority = document.getElementById("priority").value
+                let result = document.getElementById("result")
+
+                let taskObj={
+                    taskid:Date.now(),
+                    task,
+                    priority,
+                }
+
+                tasklist.push(taskObj)
+                rendertask()
+            })
+        })
+    </script>
+</body>
+</html>
