@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: black;
+    }
+    .container{
+        width: 600px;
+    }
+    #ans{
+        color: red;
+        height: 50px;
+    }
+    #ans2{
+        color: red;
+        height: 50px;
+    }
+    label{
+        color: red;
+        font-size: 20px;
+    }
+    .input-box{
+        height: 50px;
+        width: 50px;
+        background-color: aquamarine;
+    }
+</style>
+<body>
+    <div class="container">
+       <div class="main" id="main">
+         <h1 class="text-center text-bg-info mb-3 text-danger-emphasis ">All String Operation</h1>
+        <div class="d-flex align-items-center justify-content-center mt-5">
+               <label for="str1" class="form-label">String 1 .</label>
+        <input type="text" name="" id="str1" placeholder="Enter your String" class="form-control" style="width: 300px;">
+        </div>
+        <div class="d-flex mt-5 align-items-center justify-content-center">
+            <label for="str2" class="form-label"> String 2 .</label>
+        <input type="text" name="" id="str2" placeholder="Enter your String" class="form-control" style="width: 300px;">
+        </div>
+       </div>
+     
+        <h3 id="ans" class="text-center mt-3"></h3>
+        <h3 id="ans2" class="text-center"></h3>
+        <div class="">
+            <div class="row">
+                <div class="col-6">
+                    <div class="d-flex flex-column gap-3">
+                        <button class="btn btn-primary" id="anagram">Anagram</button>
+                        <button class="btn btn-primary" id="palindrome">Palindrome</button>
+                        <button class="btn btn-primary" id="tg">ToggleCase</button>
+                        <button class="btn btn-primary" id="lc">LowerCase</button>
+                        <button class="btn btn-primary" id="uc">UpperCase</button>
+                        
+                        
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column gap-3">
+                        <button class="btn btn-primary" id="sh">Second high & Low</button>
+                        <button class="btn btn-primary" id="sh">Random</button>
+                    </div>
+                   
+
+                </div>
+            </div>
+        
+        </div>
+     
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+              let str1=document.getElementById("str1")
+                let str2=document.getElementById("str2")
+                let ans=document.getElementById("ans")
+                let ans2=document.getElementById("ans2")
+                let main=document.getElementById("main")
+
+            $("#anagram").on("click",function(){
+              
+                ans2.innerHTML=""
+                let sorted1=str1.value.toLowerCase().split("").sort().join("")
+                let sorted2=str2.value.toLowerCase().split("").sort().join("")
+
+                if(sorted1=="" || sorted2 =="")
+                {
+                  ans.innerHTML = "Please Enter Both String";
+                  return;
+                }
+                
+                if(sorted1 ==sorted2){
+                    ans.innerHTML = "Both String Are Anagram String"
+                }
+                else{
+                    ans.innerHTML = "Both String Are Not Anagram"
+                }
+            })
+
+            $("#palindrome").on("click",function(){
+                ans.innerHTML=""
+                ans2.innerHTML=""
+                let orstr1=str1.value.toLowerCase()
+                let palinstr1=orstr1.split("").reverse().join("")
+                
+                   if(orstr1=="")
+                {
+                  ans.innerHTML = "Please Enter Both String";
+                  return;
+                }
+                if(orstr1 == palinstr1){
+                    ans.innerHTML = "String 1 is Palindrome"
+                }
+                else{
+                    ans.innerHTML = "String 1 is Not Palindrome"
+                }
+                let orstr2=str2.value.toLowerCase()
+                let palinstr2=orstr2.split("").reverse().join("")
+                      if(orstr2=="")
+                {
+                  ans.innerHTML = "Please Enter Both String";
+                  return;
+                }
+                if(orstr2 == palinstr2){
+                    ans2.innerHTML = "String 2 is Palindrome"
+                }
+                else{
+                    ans2.innerHTML = "String 2 is Not Palindrome"
+                }
+            })
+            $("#tg").on("click",function(){
+                ans.innerHTML=""
+                ans2.innerHTML=""
+                let tgstr1=str1.value.split("")
+                let newstr1=[]
+                for(let i = 0; i < tgstr1.length;i++){
+                    let ch=tgstr1[i];
+                    if(ch == ch.toUpperCase()){
+                        newstr1.push(ch.toLowerCase())
+                    }
+                    else if(ch == ch.toLowerCase()){
+                        newstr1.push(ch.toUpperCase())
+                    }
+                    else{
+                        newstr1.push(ch)
+                    }
+                }
+                ans.innerHTML =newstr1.join("")
+
+                let tgstr2=str2.value.split("")
+                let newstr2=[]
+                for (let i = 0;i < tgstr2.length ; i++){
+                    let ch = tgstr2[i]
+                    if(ch == ch.toUpperCase()){
+                        newstr2.push(ch.toLowerCase())
+                    }
+                    else if (ch == ch.toLowerCase()){
+                        newstr2.push(ch.toUpperCase())
+                    }
+                    else{
+                        newstr2.push(ch)
+                    }
+                }
+                ans2.innerHTML = newstr2.join("")
+            })
+            $("#lc").on("click",function(){
+                let newstr1=str1.value
+                let newstr2=str2.value
+                ans.innerHTML = newstr1.toLowerCase()
+                ans2.innerHTML = newstr2.toLowerCase()
+            }) 
+            $("#uc").on("click",function(){
+                ans.innerHTML=str1.value.toUpperCase()
+                ans2.innerHTML = str2.value.toUpperCase()
+            }) 
+            $("#sh").on("click",function(){
+                main.innerHTML=""
+                let number=prompt("Enter how many boxes you want")
+                let intnum=number
+                if(intnum ==""){
+                    alert("Invalid Input || Creating 10 Boxes By Default")
+                    intnum=10
+                }
+                for(let i = 0;i < intnum;i++){
+                    main.innerHTML+=`<input class="input-box" id="intnum${i}"></input>`
+                }
+
+                    for(let i = 0;i <intnum ;i++){
+                    document.getElementById(`intnum${i}`).value =parseInt(Math.random() * 99)
+                    }
+                let arr2=[]
+                for(let i = 0;i < intnum;i++){
+                    arr2.push(document.getElementById(`intnum${i}`).value)
+                }
+                arr2.sort((x,y) =>{
+                    return x-y
+                })
+
+                let second=arr2.at(1)
+                let last=arr2.at(-2)
+
+                ans.innerHTML =`Last Element is ${second}`
+                ans2.innerHTML =`Second Lst Element is ${last}`
+            
+            })  
+            
+        })
+    </script>
+</body>
+</html>
