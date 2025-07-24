@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: rgb(31, 31, 31);
+    }
+    .main-wrapper{
+        width: 500px;
+        background-color: rgba(0, 0, 0, 0.432);
+        padding: 50px;
+        border-radius: 30px;
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        box-shadow: 1px 1px 10px rgb(187, 171, 171);
+    }
+</style>
+<body>
+
+    <div class="main-wrapper">
+        <form action="" id="form" class="d-flex flex-column gap-3 form-check">
+       <label for="name" class="form-label">Name</label>
+        <input type="name" class="form-control" id="name" name="name">
+    
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email">
+    
+        <label for="date" class="form-label">DOB</label>
+        <input type="date" class="form-control" id="date" name="date">
+    
+         <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
+    
+        <label for="cpassword" class="form-label">Confrim Password</label>
+         <input type="password" class="form-control" id="cpassword" name="cpassword">
+    
+         <button type="submit" class="btn btn-danger" id="sbt">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function(){
+            let form=document.getElementById("form")
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            $("#sbt").on("click",function(e){
+                e.preventDefault()
+                
+                let name=document.getElementById("name").value
+                let email=document.getElementById("email").value
+                let date=document.getElementById("date").value
+                let password=document.getElementById("password").value
+                let cpassword=document.getElementById("cpassword").value
+                // if(name.trim() ==""){
+                //     Swal.fire("Enter Name Please")
+                //     return
+                // }
+                // if(!emailRegex.test(email)){
+                //       Swal.fire("Enter Valid Email")
+                //     return
+                // }
+                // if(!passwordRegex.test(password)){
+                //     Swal.fire("Enter Proper Passwor  d")
+                //     return
+                    
+                // }
+                // if(password != cpassword){
+                //     Swal.fire("Password Do not Match")
+                //     return
+                // }
+                if(date ==""){
+                    Swal.fire("Enter Date Please")
+                    return
+                }
+                else{
+                     let birthyear = new Date(date).getFullYear()
+                    let currentyear = new Date().getFullYear()
+                    let age=currentyear - birthyear
+                    if(age < 18){
+                        alert("Your Age is Below 18")
+                        return
+                    }
+                }
+               
+                
+                
+                form.submit()
+            })
+        })
+
+    </script>
+
+</body>
+</html>
