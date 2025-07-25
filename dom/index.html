@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <input type="text" id="ip">
+      <button type="button" id="btn">Click</button>
+    <h1 id="box"></h1>
+  
+
+    <script>
+        let input=document.getElementById("ip")
+        let imagecontainer=document.getElementById("box")
+        document.getElementById("ip").addEventListener("input",function(e){
+            imagecontainer.innerHTML=e.target.value
+        })
+
+    </script>
+</body>
+</html>
