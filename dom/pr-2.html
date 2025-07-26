@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="ip">
+    <button type="button" id="btn">Click </button>
+    <div id="box"></div>
+
+    <script>
+        let imagecontainer=document.getElementById("box")
+        let input=document.getElementById("ip")
+
+        document.getElementById("btn").addEventListener("click",function(){
+
+            let image=document.createElement("img")
+            image.setAttribute("src",input.value)
+            image.setAttribute("width",300)
+
+            imagecontainer.append(image)
+        })
+    </script>
+</body>
+
+
+</html>

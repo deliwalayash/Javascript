@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<input type="text" id="ip">
+<button type="button" id="btn">Submit</button>
+<h1 id="result"></h1>
+
+<body>
+
+    <script>
+     
+        let result=document.getElementById("result")
+
+        document.getElementById("ip").addEventListener("input",function(e){
+        result.innerHTML= e.target.value  
+        })
+
+        
+    </script>
+    
+</body>
+</html>
