@@ -25,7 +25,9 @@
 
     <button type="submit" class="btn btn-primary" id="btn">Submit</button>
     <button type="submit" class="btn btn-primary" id="random">Random</button>
+    <button type="submit" class="btn btn-primary" id="sum">Sum</button>
     <div id="result" class="d-flex gap-2 flex-wrap mt-3"></div>
+    <h1 id="result2"></h1>
 </div>
 
     
@@ -39,6 +41,7 @@
             e.preventDefault()
             input=Number(document.getElementById("ip").value)
             result=document.getElementById("result")
+            result2=document.getElementById("result2")
             console.log(input)
             result.innerHTML=""
             
@@ -52,6 +55,22 @@
             }
 
         })
+
+        document.getElementById("sum").addEventListener("click",function(){
+
+            let max= 0
+            result2.innerHTML=""
+            for(i = 0 ;i < input ; i++){
+                num = Number(document.getElementById(`num${i}`).innerHTML)
+                if(num > max){
+                    max= num
+                }
+            }
+
+            result2.innerHTML= max
+        })
+
+
 
             
     })
